@@ -5,7 +5,6 @@ import { SOCIAL_LINKS } from "@/lib/constants";
 import { fadeInUp, fadeInRight, staggerContainer } from "@/lib/animations";
 
 export default function ContactPage() {
-
   return (
     <div className="pb-24">
       <section className="border-b bg-gradient-to-b from-background to-muted/30 py-24">

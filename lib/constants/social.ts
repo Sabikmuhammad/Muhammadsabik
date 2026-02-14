@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Mail, X } from "lucide-react";
+import { Github, Linkedin, Mail, X } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { SocialLink } from "@/lib/types";
 

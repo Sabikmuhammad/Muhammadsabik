@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ROLES, HIGHLIGHTS } from "@/lib/constants";
 import { PROJECTS } from "@/lib/constants/projects";
-import { fadeInUp, staggerContainer, scaleIn } from "@/lib/animations";
+import { fadeInUp, staggerContainer } from "@/lib/animations";
 
 export default function HomePage() {
   return (

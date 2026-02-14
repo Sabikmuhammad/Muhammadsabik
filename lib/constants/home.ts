@@ -1,4 +1,3 @@
-import { Code2, Rocket, Users } from "lucide-react";
 import { Highlight, Stat } from "@/lib/types";
 
 export const ROLES = ["Engineer", "Architect", "Founder", "Builder"];
