@@ -87,11 +87,7 @@ export default function RootLayout({
     jobTitle: "Full-Stack Architect & Founder",
     description: siteConfig.creator.bio,
     email: siteConfig.email,
-    sameAs: [
-      siteConfig.links.github,
-      siteConfig.links.linkedin,
-      siteConfig.links.twitter,
-    ],
+    sameAs: [siteConfig.links.github, siteConfig.links.linkedin, siteConfig.links.twitter],
     alumniOf: {
       "@type": "EducationalOrganization",
       name: "Computer Science Engineering",

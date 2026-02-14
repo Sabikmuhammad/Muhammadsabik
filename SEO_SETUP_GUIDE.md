@@ -19,16 +19,19 @@
 ## 🎨 Images You Need to Create
 
 ### 1. Open Graph Image (`/public/og.png`)
+
 **Size:** 1200 x 630 pixels  
 **Format:** PNG or JPG
 
 **Content suggestions:**
+
 - Your name: "Muhammad Sabik"
 - Tagline: "Full-Stack Architect & Founder"
 - Background: Clean gradient or minimal design
 - Optional: Your logo or professional photo
 
 **Tools to create:**
+
 - Canva (free templates)
 - Figma (custom design)
 - [og-image.xyz](https://og-image.xyz)
@@ -37,6 +40,7 @@
 ### 2. Favicons (Multiple sizes)
 
 You need these files in `/public/`:
+
 - `favicon.ico` (32x32 or 16x16)
 - `favicon-16x16.png` (16x16)
 - `apple-touch-icon.png` (180x180)
@@ -44,12 +48,14 @@ You need these files in `/public/`:
 - `icon-512.png` (512x512) - for webmanifest
 
 **Easy way to generate all at once:**
+
 1. Create one high-res logo/icon (512x512 minimum)
 2. Use [favicon.io](https://favicon.io) or [realfavicongenerator.net](https://realfavicongenerator.net)
 3. Upload your image, download the package
 4. Extract all files to `/public/` folder
 
 **Design tips:**
+
 - Simple and recognizable
 - Works in both light/dark backgrounds
 - Could be: Your initials "MS", a logo, or a symbol
@@ -57,6 +63,7 @@ You need these files in `/public/`:
 ## 🚀 Deployment Checklist
 
 ### Before Going Live:
+
 - [ ] Images created and placed in `/public/`
 - [ ] Website deployed to `muhammadsabik.dev`
 - [ ] SSL certificate active (https://)
@@ -67,6 +74,7 @@ You need these files in `/public/`:
 ### After Deployment:
 
 #### 1. Google Search Console (CRITICAL)
+
 - [ ] Go to https://search.google.com/search-console
 - [ ] Add property: `muhammadsabik.dev`
 - [ ] Verify ownership (choose DNS, HTML file, or Analytics method)
@@ -75,7 +83,9 @@ You need these files in `/public/`:
 - [ ] Wait 1-7 days for indexing
 
 #### 2. Add Website to Your Profiles
+
 Update your website link on:
+
 - [ ] GitHub profile
 - [ ] LinkedIn profile
 - [ ] Twitter/X bio
@@ -83,12 +93,14 @@ Update your website link on:
 - [ ] Any other social media
 
 #### 3. Create Quality Backlinks
+
 - [ ] Write blog posts mentioning your name
 - [ ] Guest post on other blogs (with link to your site)
 - [ ] Comment on relevant forums/communities
 - [ ] Share your portfolio on Reddit, Twitter, LinkedIn
 
 #### 4. Monitor Progress
+
 - [ ] Check indexing: Search `site:muhammadsabik.dev` on Google
 - [ ] Search your name: `Muhammad Sabik` + `developer` or `engineer`
 - [ ] Check Google Search Console for impressions/clicks
@@ -97,6 +109,7 @@ Update your website link on:
 ## 🎯 SEO Best Practices
 
 ### Improve Ranking:
+
 1. **Content is King**
    - Write more blog posts with your name
    - Share unique insights and projects
@@ -129,12 +142,14 @@ Update your website link on:
 ## 🔍 Testing Your SEO
 
 Test these URLs once deployed:
+
 - Home: https://muhammadsabik.dev
 - Sitemap: https://muhammadsabik.dev/sitemap.xml
 - Robots: https://muhammadsabik.dev/robots.txt
 - OG Image: https://muhammadsabik.dev/og.png
 
 Use these tools:
+
 - Google Search Console (index status)
 - [PageSpeed Insights](https://pagespeed.web.dev)
 - [Rich Results Test](https://search.google.com/test/rich-results) (for structured data)
@@ -160,5 +175,6 @@ Use these tools:
 ---
 
 **Need help?** Check:
+
 - [Google Search Central](https://developers.google.com/search)
 - [Next.js SEO Guide](https://nextjs.org/learn/seo/introduction-to-seo)

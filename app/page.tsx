@@ -123,21 +123,23 @@ export default function HomePage() {
                 Featured Project
               </div>
               <h2 className="mt-4 text-fluid-3xl font-bold">FrameKart</h2>
-              <p className="mt-2 text-muted-foreground">Revolutionary Custom Frame E-Commerce Platform</p>
+              <p className="mt-2 text-muted-foreground">
+                Revolutionary Custom Frame E-Commerce Platform
+              </p>
             </motion.div>
 
             <motion.div variants={fadeInUp}>
               <Card className="group relative overflow-hidden border-2 transition-all duration-300 hover:border-primary/50 hover:shadow-2xl">
                 {/* Background gradient */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                
+
                 <div className="relative p-6 md:p-8 lg:p-10">
                   <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
                     {/* Left: Description */}
                     <div className="space-y-6">
                       <p className="text-lg leading-relaxed text-muted-foreground">
-                        A full-stack e-commerce platform that revolutionizes custom frame ordering. 
-                        Built from scratch with modern technologies, handling thousands of monthly 
+                        A full-stack e-commerce platform that revolutionizes custom frame ordering.
+                        Built from scratch with modern technologies, handling thousands of monthly
                         orders with exceptional performance.
                       </p>
 
@@ -161,9 +163,13 @@ export default function HomePage() {
                       {/* Links */}
                       <div className="flex flex-wrap gap-3">
                         <Button asChild className="group/btn">
-                          <Link href={PROJECTS[0].demo || "#"} target="_blank" rel="noopener noreferrer">
+                          <Link
+                            href={PROJECTS[0].demo || "#"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             View Live Site
-                            <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                            <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
                           </Link>
                         </Button>
                         <Button asChild variant="outline">
@@ -180,7 +186,7 @@ export default function HomePage() {
                       <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                         Key Metrics
                       </h4>
-                      
+
                       <motion.div
                         whileHover={{ scale: 1.02 }}
                         className="rounded-lg border bg-card/50 p-4 transition-all hover:border-primary/30 hover:bg-card"
@@ -205,7 +211,9 @@ export default function HomePage() {
                             <Zap className="h-5 w-5 text-primary" />
                           </div>
                           <div>
-                            <div className="text-2xl font-bold">{PROJECTS[0].metrics?.performance}</div>
+                            <div className="text-2xl font-bold">
+                              {PROJECTS[0].metrics?.performance}
+                            </div>
                             <div className="text-sm text-muted-foreground">Performance Score</div>
                           </div>
                         </div>
