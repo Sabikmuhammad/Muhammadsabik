@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight, ExternalLink, Star, TrendingUp, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ROLES, STATS, HIGHLIGHTS } from "@/lib/constants";
+import { ROLES, HIGHLIGHTS } from "@/lib/constants";
 import { PROJECTS } from "@/lib/constants/projects";
 import { fadeInUp, staggerContainer, scaleIn } from "@/lib/animations";
 
