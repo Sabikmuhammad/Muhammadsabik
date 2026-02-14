@@ -1,40 +1,10 @@
 "use client";
 
-import { useActionState } from "react";
-import { useFormStatus } from "react-dom";
 import { motion } from "framer-motion";
-import { Loader2, Send } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { SOCIAL_LINKS } from "@/lib/constants";
-import { submitContactForm, type ContactFormState } from "./actions";
-import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer } from "@/lib/animations";
-
-function SubmitButton() {
-  const { pending } = useFormStatus();
-
-  return (
-    <Button type="submit" size="lg" disabled={pending} className="group w-full">
-      {pending ? (
-        <>
-          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-          Sending...
-        </>
-      ) : (
-        <>
-          Send Message
-          <Send className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-        </>
-      )}
-    </Button>
-  );
-}
+import { fadeInUp, fadeInRight, staggerContainer } from "@/lib/animations";
 
 export default function ContactPage() {
-  const initialState: ContactFormState = {};
-  const [state, formAction] = useActionState(submitContactForm, initialState);
 
   return (
     <div className="pb-24">
