@@ -212,6 +212,15 @@
     box-shadow: 0 0 10px rgba(var(--primary), 0.2);
   }
 
+  /* Animation delays */
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
   /* Text gradients */
   .text-gradient {
     @apply bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent;
