@@ -1,87 +1,80 @@
 import { Project } from "@/lib/types";
 
-export const PROJECT_CATEGORIES = ["All"];
-// , "Web App", "SaaS", "E-Commerce", "Mobile", "Open Source"
+export const PROJECT_CATEGORIES = ["All", "E-COMMERCE", "AI · AUTOMATION", "BUSINESS · SAAS", "API · AUTOMATION"];
+
 export const PROJECTS: Project[] = [
   {
     title: "FrameKart",
-    description:
-      "Revolutionary e-commerce platform for custom frames. Built with Next.js, Node.js, and PostgreSQL. Handling 10K+ monthly orders.",
-    category: "SaaS",
-    tags: ["Next.js", "TypeScript", "PostgreSQL", "Cashfree", "AWS"],
+    description: "Custom e-commerce platform for personalized frames.",
+    category: "E-COMMERCE",
+    tags: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
     featured: true,
     demo: "https://framekart.co.in",
-    github: "https://github.com/muhammadsabik/framekart",
-    metrics: {
-      users: "5K+",
-      performance: "98 Lighthouse",
-      uptime: "99.9%",
-    },
+    overview: "A full-stack e-commerce platform designed for custom frame ordering, product configuration, checkout and order management.",
+    keyFeatures: [
+      "Custom product configuration",
+      "E-commerce workflow",
+      "Checkout and payments",
+      "Order management",
+      "Responsive storefront",
+      "Scalable backend architecture"
+    ],
   },
-  // {
-  //   title: "Real-Time Collaboration Tool",
-  //   description:
-  //     "WebSocket-based collaboration platform with operational transformation for conflict-free editing. Supports 1000+ concurrent users.",
-  //   category: "Web App",
-  //   tags: ["React", "WebSocket", "Redis", "MongoDB", "Docker"],
-  //   github: "https://github.com/muhammadsabik/collab-tool",
-  //   metrics: {
-  //     latency: "<50ms",
-  //     concurrent: "1000+",
-  //     messages: "1M/day",
-  //   },
-  // },
-  // {
-  //   title: "E-Commerce Analytics Dashboard",
-  //   description:
-  //     "Real-time analytics platform processing millions of events. Built custom data pipeline with Kafka and TimescaleDB.",
-  //   category: "E-Commerce",
-  //   tags: ["Vue.js", "Python", "Kafka", "TimescaleDB", "Redis"],
-  //   // demo: "https://demo.analytics.com",
-  //   github: "https://github.com/muhammadsabik/analytics-dashboard",
-  //   metrics: {
-  //     events: "10M/day",
-  //     queries: "<100ms",
-  //     retention: "90 days",
-  //   },
-  // },
-  // {
-  //   title: "API Gateway & Rate Limiter",
-  //   description:
-  //     "High-performance API gateway with distributed rate limiting, caching, and observability. Open source project.",
-  //   category: "Open Source",
-  //   tags: ["Go", "Redis", "Prometheus", "Docker", "Kubernetes"],
-  //   github: "https://github.com/muhammadsabik/api-gateway",
-  //   metrics: {
-  //     throughput: "100K RPS",
-  //     latency: "<5ms",
-  //     stars: "2.3K",
-  //   },
-  // },
-  // {
-  //   title: "Mobile Banking App",
-  //   description:
-  //     "Secure mobile banking application with biometric authentication, real-time transactions, and offline support.",
-  //   category: "Mobile",
-  //   tags: ["React Native", "Node.js", "PostgreSQL", "Redis", "AWS"],
-  //   metrics: {
-  //     downloads: "50K+",
-  //     rating: "4.8/5",
-  //     transactions: "100K/month",
-  //   },
-  // },
-  // {
-  //   title: "Developer Portfolio Template",
-  //   description:
-  //     "Open source portfolio template built with Next.js 14. Fully customizable, SEO optimized, and performance focused.",
-  //   category: "Open Source",
-  //   tags: ["Next.js", "TypeScript", "Tailwind", "MDX", "Vercel"],
-  //   github: "https://github.com/muhammadsabik/portfolio-template",
-  //   demo: "https://portfolio-template-demo.com",
-  //   metrics: {
-  //     stars: "1.5K",
-  //     forks: "300",
-  //     lighthouse: "100",
-  //   },
-  // },
+  {
+    title: "AgentOS",
+    description: "AI-powered workflow automation platform.",
+    category: "AI · AUTOMATION",
+    tags: ["Python", "React", "FastAPI", "AI/ML"],
+    demo: "https://agentaios.vercel.app",
+    statusLabel: "IN DEVELOPMENT",
+    overview: "An intelligent automation platform designed to execute tasks through AI agents, tool integrations and workflow orchestration.",
+    keyFeatures: [
+      "AI agent orchestration",
+      "Automated workflows",
+      "Tool integration",
+      "Task execution",
+      "API-driven architecture"
+    ],
+  },
+  {
+    title: "BizFlow",
+    description: "Business management, billing and inventory platform.",
+    category: "BUSINESS · SAAS",
+    tags: ["Angular", "TypeScript", "ASP.NET Core", "C#", "EF Core", "SQLite"],
+    statusLabel: "IN DEVELOPMENT",
+    overview: "A full-stack SaaS platform that connects inventory, billing, customers and suppliers through a unified business management workspace.",
+    keyFeatures: [
+      "Real-time inventory management",
+      "Billing and business workflows",
+      "Customer & supplier management",
+      "JWT authentication & RBAC",
+      "Auditable stock transactions",
+      "RESTful API architecture",
+      "Responsive SaaS interface"
+    ],
+    customCta: {
+      label: "View",
+      href: "#"
+    }
+  },
+  {
+    title: "WhatsApp Business Automation",
+    description: "API-driven communication and workflow automation connecting business systems with WhatsApp.",
+    category: "API · AUTOMATION",
+    tags: ["Node.js", "Webhooks", "REST APIs", "WhatsApp Business API"],
+    overview: "A backend automation system that connects business applications and internal workflows with WhatsApp, allowing businesses to automate customer communication, notifications and operational messaging.",
+    keyFeatures: [
+      "WhatsApp Business API integration",
+      "Webhook handling",
+      "Event-driven workflows",
+      "Automated customer messaging",
+      "Business system integration",
+      "API-based communication",
+      "Notification automation"
+    ],
+    customCta: {
+      label: "Chat now",
+      href: "https://wa.me/919480632085"
+    }
+  }
 ];

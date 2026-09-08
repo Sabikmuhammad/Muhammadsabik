@@ -2,390 +2,235 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, ExternalLink, Star, TrendingUp, Zap } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { ROLES, HIGHLIGHTS } from "@/lib/constants";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { PROJECTS } from "@/lib/constants/projects";
-import { fadeInUp, staggerContainer } from "@/lib/animations";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.1 }
+  }
+};
 
 export default function HomePage() {
+  const featuredProject = PROJECTS.find(p => p.featured) || PROJECTS[0];
+
   return (
-    <div className="overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative flex min-h-[90vh] items-center justify-center px-4">
-        {/* Animated grid background */}
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
-
-        {/* Gradient orbs */}
-        <div className="absolute -left-40 top-1/4 -z-10 h-80 w-80 rounded-full bg-primary/5 blur-3xl" />
-        <div className="absolute -right-40 bottom-1/4 -z-10 h-80 w-80 rounded-full bg-primary/5 blur-3xl" />
-
-        <div className="container">
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-            className="mx-auto max-w-4xl space-y-6 text-center md:space-y-8"
-          >
-            <motion.div variants={fadeInUp} className="space-y-4">
-              <motion.p
-                variants={fadeInUp}
-                className="text-fluid-lg font-medium text-muted-foreground"
-              >
-                Computer Science Engineer
-              </motion.p>
-
-              <motion.h1
-                variants={fadeInUp}
-                className="bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-fluid-6xl font-bold tracking-tighter"
-              >
-                Muhammad Sabik
-              </motion.h1>
-
-              <motion.div
-                variants={fadeInUp}
-                className="flex flex-col items-center justify-center gap-2 text-fluid-2xl sm:flex-row"
-              >
-                <span className="text-muted-foreground">Software Engineer</span>
-                <RoleRotator roles={ROLES} />
-              </motion.div>
-            </motion.div>
-
-            <motion.p
-              variants={fadeInUp}
-              className="mx-auto max-w-2xl text-fluid-xl leading-relaxed text-muted-foreground"
-            >
-              Building scalable platforms, engineering excellence, and creating impactful products.
-            </motion.p>
-
-            <motion.div
-              variants={fadeInUp}
-              className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
-            >
-              <Button
-                asChild
-                size="lg"
-                className="group w-full shadow-lg transition-all hover:shadow-xl sm:w-auto"
-              >
-                <Link href="/work">
-                  View Projects
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="w-full transition-all hover:bg-accent sm:w-auto"
-              >
-                <Link href="/contact">Get in Touch</Link>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+    <div className="overflow-hidden bg-background selection:bg-foreground selection:text-background">
+      
+      {/* 1. Hero Section (Centered) */}
+      <section className="relative min-h-[95vh] flex flex-col items-center justify-center px-4 md:px-8 max-w-[1400px] mx-auto pt-20 text-center">
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+          className="space-y-12 max-w-4xl flex flex-col items-center"
         >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="h-10 w-6 cursor-pointer rounded-full border-2 border-muted-foreground/30 p-1 transition-colors hover:border-muted-foreground/50"
-            onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}
-          >
-            <motion.div
-              className="h-3 w-1.5 rounded-full bg-muted-foreground/50"
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            />
+          {/* Main Title */}
+          <motion.div variants={fadeInUp} className="space-y-6">
+            <h2 className="text-xs md:text-sm font-mono tracking-widest uppercase text-muted-foreground">
+              Software Engineer 
+            </h2>
+            <h1 className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.85] tracking-tight text-foreground">
+              Mohammed Shabik
+            </h1>
+          </motion.div>
+
+          {/* Supporting Copy & CTAs */}
+          <motion.div variants={fadeInUp} className="flex flex-col items-center space-y-10">
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+              I build digital products, scalable systems, <br className="hidden md:block"/> and software businesses.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-8 items-center justify-center">
+              <Link 
+                href="/work" 
+                className="group flex items-center gap-2 text-lg font-medium border-b border-foreground pb-1 transition-colors hover:text-muted-foreground hover:border-muted-foreground"
+              >
+                View Selected Work
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link 
+                href="/contact" 
+                className="group flex items-center gap-2 text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Let&apos;s Talk
+                <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </Link>
+            </div>
           </motion.div>
         </motion.div>
       </section>
 
-      {/* Featured Project Section - FrameKart */}
-      <section className="py-16 md:py-24">
-        <div className="container px-4">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="mx-auto max-w-6xl"
-          >
-            <motion.div variants={fadeInUp} className="mb-8 text-center md:mb-12">
-              <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
-                <Star className="h-4 w-4" />
-                Featured Project
-              </div>
-              <h2 className="mt-4 text-fluid-3xl font-bold">FrameKart</h2>
-              <p className="mt-2 text-muted-foreground">
-                Revolutionary Custom Frame E-Commerce Platform
-              </p>
-            </motion.div>
-
-            <motion.div variants={fadeInUp}>
-              <Card className="group relative overflow-hidden border-2 transition-all duration-300 hover:border-primary/50 hover:shadow-2xl">
-                {/* Background gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-                <div className="relative p-6 md:p-8 lg:p-10">
-                  <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
-                    {/* Left: Description */}
-                    <div className="space-y-6">
-                      <p className="text-lg leading-relaxed text-muted-foreground">
-                        A full-stack e-commerce platform that revolutionizes custom frame ordering.
-                        Built from scratch with modern technologies, handling thousands of monthly
-                        orders with exceptional performance.
-                      </p>
-
-                      {/* Tech Stack */}
-                      <div>
-                        <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-                          Tech Stack
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                          {PROJECTS[0].tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Links */}
-                      <div className="flex flex-wrap gap-3">
-                        <Button asChild className="group/btn">
-                          <Link
-                            href={PROJECTS[0].demo || "#"}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            View Live Site
-                            <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
-                          </Link>
-                        </Button>
-                        <Button asChild variant="outline">
-                          <Link href="/work">
-                            View All Projects
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </div>
-                    </div>
-
-                    {/* Right: Metrics */}
-                    <div className="space-y-4">
-                      <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-                        Key Metrics
-                      </h4>
-
-                      <motion.div
-                        whileHover={{ scale: 1.02 }}
-                        className="rounded-lg border bg-card/50 p-4 transition-all hover:border-primary/30 hover:bg-card"
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className="rounded-lg bg-primary/10 p-2">
-                            <TrendingUp className="h-5 w-5 text-primary" />
-                          </div>
-                          <div>
-                            <div className="text-2xl font-bold">{PROJECTS[0].metrics?.users}</div>
-                            <div className="text-sm text-muted-foreground">Monthly Orders</div>
-                          </div>
-                        </div>
-                      </motion.div>
-
-                      <motion.div
-                        whileHover={{ scale: 1.02 }}
-                        className="rounded-lg border bg-card/50 p-4 transition-all hover:border-primary/30 hover:bg-card"
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className="rounded-lg bg-primary/10 p-2">
-                            <Zap className="h-5 w-5 text-primary" />
-                          </div>
-                          <div>
-                            <div className="text-2xl font-bold">
-                              {PROJECTS[0].metrics?.performance}
-                            </div>
-                            <div className="text-sm text-muted-foreground">Performance Score</div>
-                          </div>
-                        </div>
-                      </motion.div>
-
-                      <motion.div
-                        whileHover={{ scale: 1.02 }}
-                        className="rounded-lg border bg-card/50 p-4 transition-all hover:border-primary/30 hover:bg-card"
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className="rounded-lg bg-primary/10 p-2">
-                            <Star className="h-5 w-5 text-primary" />
-                          </div>
-                          <div>
-                            <div className="text-2xl font-bold">{PROJECTS[0].metrics?.uptime}</div>
-                            <div className="text-sm text-muted-foreground">Uptime</div>
-                          </div>
-                        </div>
-                      </motion.div>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      {/* <section className="border-y bg-muted/30 py-12 backdrop-blur-sm md:py-20">
+      {/* 2. Selected Work (Featured Only) */}
+      <section className="py-24 md:py-32 px-4 md:px-8 max-w-[1400px] mx-auto border-t border-border/50">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="container px-4"
+          className="space-y-24"
         >
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
-            {STATS.map((stat) => (
-              <motion.div
-                key={stat.label}
-                variants={scaleIn}
-                className="group space-y-2 text-center"
-              >
-                <motion.div
-                  className="bg-gradient-to-br from-primary to-primary/70 bg-clip-text text-fluid-4xl font-bold text-transparent"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  {stat.value}
-                </motion.div>
-                <div className="text-sm font-medium text-muted-foreground">{stat.label}</div>
-              </motion.div>
-            ))}
+          {/* Section Header */}
+          <motion.div variants={fadeInUp} className="flex flex-col items-center text-center space-y-6">
+            <h2 className="font-display text-5xl md:text-7xl tracking-tight text-foreground">
+              Selected Work
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
+              A selection of products and systems I&apos;ve designed, engineered, and brought to life.
+            </p>
+          </motion.div>
+
+          {/* Featured Project */}
+          {featuredProject && (
+            <motion.div variants={fadeInUp} className="max-w-4xl mx-auto group bg-muted/5 border border-border/30 rounded-sm hover:border-border/60 hover:bg-muted/10 transition-colors p-8 md:p-12 lg:p-16">
+              <div className="flex flex-col space-y-10">
+                {/* Header */}
+                <div className="flex items-center gap-4 text-xs font-mono tracking-widest uppercase text-muted-foreground">
+                  <span>01</span>
+                  <span>—</span>
+                  <span className="text-primary border border-primary/20 bg-primary/5 px-3 py-1 rounded-sm">Featured</span>
+                </div>
+
+                {/* Title & Description */}
+                <div>
+                  <h3 className="font-display text-4xl md:text-5xl lg:text-6xl tracking-tight text-foreground mb-6">
+                    {featuredProject.title}
+                  </h3>
+                  <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+                    {featuredProject.description}
+                  </p>
+                </div>
+
+                {/* Technologies */}
+                <div className="space-y-4 pt-8 border-t border-border/20">
+                  <div className="text-xs font-mono tracking-widest uppercase text-muted-foreground">Technologies</div>
+                  <div className="flex flex-wrap gap-x-3 gap-y-2 text-foreground font-mono text-sm leading-relaxed">
+                    {featuredProject.tags.join(" · ")}
+                  </div>
+                </div>
+
+                {/* Links */}
+                <div className="pt-4">
+                  {featuredProject.demo && (
+                    <Link href={featuredProject.demo} target="_blank" className="inline-flex items-center gap-2 font-mono text-sm tracking-widest uppercase text-foreground hover:text-muted-foreground transition-colors border-b border-foreground pb-1 hover:border-muted-foreground">
+                      Live Site ↗
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          {/* View More Projects CTA */}
+          <motion.div variants={fadeInUp} className="flex justify-center pt-8">
+            <Link 
+              href="/work" 
+              className="group inline-flex items-center gap-2 text-sm font-mono tracking-widest uppercase text-foreground transition-colors border-b border-foreground pb-1 hover:text-muted-foreground hover:border-muted-foreground"
+            >
+              VIEW MORE PROJECTS <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* 3. WhatsApp Business Automation Promotion */}
+      <section className="py-32 px-4 md:px-8 bg-background border-t border-border/50">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+          className="max-w-[1400px] mx-auto"
+        >
+          <div className="max-w-4xl mx-auto space-y-12">
+            
+            <motion.div variants={fadeInUp} className="space-y-6">
+              <div className="text-xs font-mono tracking-widest uppercase text-muted-foreground">
+                WhatsApp Business Automation
+              </div>
+              <h2 className="font-display text-4xl md:text-5xl lg:text-7xl tracking-tight text-foreground leading-[1.1]">
+                TURN WHATSAPP INTO <br className="hidden md:block" /> PART OF YOUR BUSINESS SYSTEM.
+              </h2>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="grid md:grid-cols-2 gap-12 md:gap-24 pt-8">
+              
+              {/* Copy Area */}
+              <div className="space-y-8">
+                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
+                  API-driven communication and workflow automation connecting business systems with WhatsApp.
+                </p>
+                <div className="pt-4">
+                  <a 
+                    href="https://wa.me/919480632085" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-2 text-sm font-mono tracking-widest uppercase text-foreground transition-colors border-b border-foreground pb-1 hover:text-muted-foreground hover:border-muted-foreground"
+                  >
+                    DISCUSS AN AUTOMATION <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Capabilities List */}
+              <div className="space-y-6 md:pl-12 md:border-l border-border/20">
+                <ul className="space-y-4">
+                  {[
+                    "Automated business notifications",
+                    "API-driven communication",
+                    "Event-based workflows",
+                    "Webhook integrations",
+                    "Business system integrations"
+                  ].map((capability, idx) => (
+                    <li key={idx} className="flex items-start gap-4">
+                      <span className="text-muted-foreground mt-1 text-xs font-mono uppercase tracking-widest">0{idx + 1}</span>
+                      <span className="text-foreground leading-relaxed font-light">{capability}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+            </motion.div>
+
           </div>
         </motion.div>
-      </section> */}
-
-      {/* Highlights Section */}
-      <section className="py-16 md:py-24">
-        <div className="container px-4">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="mx-auto mb-12 max-w-3xl space-y-4 text-center md:mb-16"
-          >
-            {/* <motion.h2 variants={fadeInUp} className="text-fluid-4xl font-bold">
-              Building the Future
-            </motion.h2>
-            <motion.p variants={fadeInUp} className="text-fluid-lg text-muted-foreground">
-              Combining technical excellence with product thinking to deliver exceptional results.
-            </motion.p> */}
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8"
-          >
-            {HIGHLIGHTS.map((item) => (
-              <motion.div
-                key={item.title}
-                variants={fadeInUp}
-                whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                className="group relative rounded-xl border bg-card p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-xl md:p-8"
-              >
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-                <div className="relative z-10">
-                  <motion.div
-                    className="mb-4 inline-flex rounded-lg bg-primary/10 p-3 text-primary"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  >
-                    <item.icon className="h-6 w-6" />
-                  </motion.div>
-                  <h3 className="mb-2 text-xl font-semibold transition-colors group-hover:text-primary">
-                    {item.title}
-                  </h3>
-                  <p className="leading-relaxed text-muted-foreground">{item.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-muted/30 py-16 backdrop-blur-sm md:py-24">
-        <div className="container px-4">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="mx-auto max-w-3xl space-y-6 text-center md:space-y-8"
-          >
-            <motion.h2 variants={fadeInUp} className="text-fluid-4xl font-bold">
-              Let's Build Something Great
-            </motion.h2>
-            <motion.p variants={fadeInUp} className="text-fluid-lg text-muted-foreground">
-              Looking for a technical partner or want to discuss your next project? I'm always open
-              to exploring new opportunities.
-            </motion.p>
-            <motion.div
-              variants={fadeInUp}
-              className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
-            >
-              <Button
-                asChild
-                size="lg"
-                className="group w-full shadow-lg transition-all hover:shadow-xl sm:w-auto"
-              >
-                <Link href="/contact">
-                  Start a Conversation
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
-                <Link href="/about">Learn More About Me</Link>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-    </div>
-  );
-}
-
-function RoleRotator({ roles }: { roles: string[] }) {
-  return (
-    <div className="relative inline-block h-[1.2em] w-36 overflow-hidden sm:w-40">
-      {roles.map((role, index) => (
-        <motion.span
-          key={role}
-          initial={{ y: "100%" }}
-          animate={{ y: "-400%" }}
-          transition={{
-            duration: roles.length * 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: index * 2,
-          }}
-          className="absolute inset-0 font-bold text-primary"
+      {/* 4. Pre-footer CTA (Centered) */}
+      <section className="py-32 px-4 md:px-8 text-center border-t border-border/50">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+          className="max-w-2xl mx-auto space-y-8"
         >
-          {role}
-        </motion.span>
-      ))}
+          <motion.h2 variants={fadeInUp} className="font-display text-5xl md:text-7xl tracking-tight">
+            Let&apos;s build something <br/> <span className="text-muted-foreground">worth shipping.</span>
+          </motion.h2>
+          <motion.p variants={fadeInUp} className="text-lg text-muted-foreground max-w-md mx-auto">
+            Have a product idea, technical challenge, or ambitious project? Let&apos;s talk.
+          </motion.p>
+          <motion.div variants={fadeInUp} className="pt-8 flex justify-center">
+            <Link 
+              href="/contact"
+              className="inline-flex items-center gap-2 font-mono text-sm tracking-widest uppercase hover:text-muted-foreground transition-colors border-b border-foreground pb-1 hover:border-muted-foreground"
+            >
+              Start a Conversation <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
+        </motion.div>
+      </section>
     </div>
   );
 }

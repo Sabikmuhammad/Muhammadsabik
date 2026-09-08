@@ -42,8 +42,15 @@ export interface Project {
   featured?: boolean;
   demo?: string;
   github?: string;
-  metrics: {
+  metrics?: {
     [key: string]: string;
+  };
+  overview?: string;
+  keyFeatures?: string[];
+  statusLabel?: string;
+  customCta?: {
+    label: string;
+    href: string;
   };
 }
 

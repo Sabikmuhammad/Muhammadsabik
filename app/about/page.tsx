@@ -1,193 +1,90 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
-import { TIMELINE, VALUES } from "@/lib/constants";
-import { fadeInUp, staggerContainer, fadeInLeft, fadeInRight } from "@/lib/animations";
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.1 }
+  }
+};
 
 export default function AboutPage() {
   return (
-    <div className="pb-24">
-      {/* Hero Section */}
-      <section className="border-b bg-gradient-to-b from-background to-muted/30 py-24">
-        <div className="container">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="mx-auto max-w-4xl space-y-6 text-center"
-          >
-            <motion.h1 variants={fadeInUp} className="text-fluid-5xl font-bold">
-              About Me
-            </motion.h1>
-            <motion.p
-              variants={fadeInUp}
-              className="text-fluid-xl leading-relaxed text-muted-foreground"
-            >
-              I'm Muhammad Sabik, a Computer Science Engineer who builds products that matter.
-              Currently founding FrameKart while helping companies scale their engineering teams.
-            </motion.p>
+    <div className="overflow-hidden bg-background">
+      
+      {/* Hero Section (Centered) */}
+      <section className="pt-32 pb-16 md:pt-48 md:pb-24 px-4 md:px-8 max-w-[1400px] mx-auto text-center">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+          className="max-w-4xl mx-auto space-y-8 flex flex-col items-center"
+        >
+          <motion.div variants={fadeInUp} className="flex items-center justify-center gap-4 text-xs font-mono tracking-widest uppercase text-muted-foreground mb-4">
+            <span className="w-12 h-[1px] bg-border" />
+            <span>About</span>
+            <span className="w-12 h-[1px] bg-border" />
           </motion.div>
-        </div>
+          <motion.h1 variants={fadeInUp} className="font-display text-5xl md:text-7xl lg:text-8xl tracking-tight text-foreground">
+            I build systems <br />
+            <span className="text-muted-foreground">that scale.</span>
+          </motion.h1>
+          <motion.p
+            variants={fadeInUp}
+            className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-[700px] pt-4 mx-auto"
+          >
+            I&apos;m Mohammed Shabik, a Software Engineer and Founder focused on building elegant, performant digital products.
+          </motion.p>
+        </motion.div>
       </section>
 
-      {/* Story Section */}
-      <section className="py-24">
-        <div className="container">
-          <div className="mx-auto max-w-4xl space-y-8">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={staggerContainer}
-              className="prose prose-lg dark:prose-invert max-w-none"
-            >
-              <motion.h2 variants={fadeInUp} className="mb-6 text-fluid-3xl font-bold">
-                The Journey
-              </motion.h2>
-
-              <motion.p variants={fadeInUp}>
-                My engineering journey started with a simple curiosity: how do applications scale to
-                serve millions of users? This question drove me to dive deep into distributed
-                systems, clean architecture, and performance optimization.
-              </motion.p>
-
-              <motion.p variants={fadeInUp}>
-                Over the past 5+ years, I've had the privilege of building products used by
-                thousands of people daily. From e-commerce platforms processing millions in
-                transactions to real-time collaboration tools enabling remote teams — each project
-                taught me something invaluable about building software that scales.
-              </motion.p>
-
-              <motion.p variants={fadeInUp}>
-                Today, as the founder of FrameKart, I'm channeling everything I've learned into
-                building a platform that revolutionizes the custom frame industry. It's not just
-                about writing code; it's about understanding user needs, architecting resilient
-                systems, and creating experiences that delight.
-              </motion.p>
-            </motion.div>
+      {/* Story / Principles Section */}
+      <section className="py-24 px-4 md:px-8 max-w-[1400px] mx-auto border-t border-border/50">
+        <div className="grid md:grid-cols-12 gap-16 md:gap-8">
+          <div className="md:col-span-4 lg:col-span-3">
+            <h2 className="text-sm font-mono tracking-widest uppercase text-muted-foreground sticky top-32">
+              The Journey
+            </h2>
+          </div>
+          <div className="md:col-span-8 lg:col-span-9 max-w-3xl space-y-8 text-lg text-muted-foreground leading-relaxed">
+            <p className="text-foreground font-medium text-xl md:text-2xl">
+              My engineering journey started with a simple curiosity: how do applications scale to serve millions of users? This question drove me to dive deep into distributed systems, clean architecture, and performance optimization.
+            </p>
+            <p>
+              Over the past Student Days, I&apos;ve had the privilege of building products used by thousands of people daily. From e-commerce platforms processing millions in transactions to real-time tools enabling remote teams each project taught me something invaluable about building software that scales.
+            </p>
+            
           </div>
         </div>
       </section>
 
-      {/* Timeline Section */}
-      <section className="bg-muted/30 py-16">
-        <div className="container">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-          >
-            <motion.h2 variants={fadeInUp} className="mb-12 text-center text-fluid-3xl font-bold">
-              Experience
-            </motion.h2>
 
-            <div className="mx-auto max-w-4xl space-y-8">
-              {TIMELINE.map((item, index) => (
-                <motion.div
-                  key={item.year}
-                  variants={index % 2 === 0 ? fadeInLeft : fadeInRight}
-                  className="relative"
-                >
-                  <Card className="group overflow-hidden transition-shadow duration-300 hover:shadow-lg">
-                    <CardContent className="p-6">
-                      <div className="flex flex-col gap-4 md:flex-row md:items-start">
-                        {/* Icon */}
-                        <motion.div
-                          className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary"
-                          whileHover={{ scale: 1.1, rotate: 5 }}
-                          transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                        >
-                          <item.icon className="h-6 w-6" />
-                        </motion.div>
-
-                        {/* Content */}
-                        <div className="flex-1 space-y-2">
-                          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                            <h3 className="text-xl font-semibold transition-colors group-hover:text-primary">
-                              {item.title}
-                            </h3>
-                            <span className="w-fit rounded-full bg-muted px-3 py-1 text-sm font-medium text-muted-foreground">
-                              {item.year}
-                            </span>
-                          </div>
-                          <p className="text-sm font-medium text-muted-foreground">
-                            {item.company}
-                          </p>
-                          <p className="leading-relaxed text-muted-foreground">
-                            {item.description}
-                          </p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
+      {/* Connect CTA */}
+      <section className="py-32 px-4 md:px-8 text-center border-t border-border/50">
+        <h2 className="font-display text-4xl md:text-5xl tracking-tight mb-8">
+          Ready to build?
+        </h2>
+        <Link 
+          href="/contact" 
+          className="inline-flex items-center gap-2 font-mono text-sm tracking-widest uppercase hover:text-muted-foreground transition-colors border-b border-foreground pb-1 hover:border-muted-foreground"
+        >
+          Let&apos;s Talk <ArrowUpRight className="w-4 h-4" />
+        </Link>
       </section>
 
-      {/* Values Section */}
-      <section className="py-24">
-        <div className="container">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-          >
-            <motion.h2 variants={fadeInUp} className="mb-12 text-center text-fluid-3xl font-bold">
-              What Drives Me
-            </motion.h2>
-
-            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3">
-              {VALUES.map((value) => (
-                <motion.div
-                  key={value.title}
-                  variants={fadeInUp}
-                  whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                  className="group space-y-4 rounded-xl border bg-card p-6 text-center transition-all duration-300 hover:border-primary/50 hover:shadow-lg"
-                >
-                  <motion.div
-                    className="inline-flex rounded-full bg-primary/10 p-4 text-primary"
-                    whileHover={{ scale: 1.1, rotate: 360 }}
-                    transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                  >
-                    <value.icon className="h-8 w-8" />
-                  </motion.div>
-                  <h3 className="text-2xl font-semibold transition-colors group-hover:text-primary">
-                    {value.title}
-                  </h3>
-                  <p className="leading-relaxed text-muted-foreground">{value.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Skills Preview */}
-      <section className="bg-muted/30 py-16">
-        <div className="container">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="mx-auto max-w-4xl space-y-6 text-center"
-          >
-            <motion.h2 variants={fadeInUp} className="text-fluid-3xl font-bold">
-              Technical Expertise
-            </motion.h2>
-            <motion.p variants={fadeInUp} className="text-fluid-lg text-muted-foreground">
-              Full-stack development, cloud architecture, DevOps, and more. I build with modern
-              tools and best practices to deliver production-grade solutions.
-            </motion.p>
-          </motion.div>
-        </div>
-      </section>
     </div>
   );
 }

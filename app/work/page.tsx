@@ -1,213 +1,263 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { Github, Filter, Star, TrendingUp, Zap } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { PROJECT_CATEGORIES, PROJECTS } from "@/lib/constants";
-import { fadeInUp, staggerContainer, scaleIn } from "@/lib/animations";
+import { ArrowUpRight } from "lucide-react";
+import { PROJECTS } from "@/lib/constants/projects";
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.1 }
+  }
+};
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  }
+};
 
 export default function WorkPage() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-
-  const filteredProjects =
-    selectedCategory === "All" ? PROJECTS : PROJECTS.filter((p) => p.category === selectedCategory);
+  const p1 = PROJECTS[0];
+  const p2 = PROJECTS[1];
+  const p3 = PROJECTS[2];
+  const p4 = PROJECTS[3];
 
   return (
-    <div className="pb-24">
+    <div className="pb-24 overflow-hidden bg-background">
       {/* Hero Section */}
-      <section className="border-b bg-gradient-to-b from-background to-muted/30 py-24">
-        <div className="container">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="mx-auto max-w-4xl space-y-6 text-center"
-          >
-            <motion.h1 variants={fadeInUp} className="text-fluid-5xl font-bold">
-              Featured Projects
-            </motion.h1>
-            <motion.p
-              variants={fadeInUp}
-              className="text-fluid-xl leading-relaxed text-muted-foreground"
-            >
-              A collection of projects showcasing expertise in full-stack development, system
-              design, and product engineering. Each built with scalability and user experience in
-              mind.
-            </motion.p>
+      <section className="pt-32 pb-16 px-4 md:px-8 max-w-[1400px] mx-auto text-center">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+          className="max-w-3xl mx-auto space-y-6 flex flex-col items-center"
+        >
+          <motion.div variants={fadeInUp} className="flex items-center justify-center gap-4 text-xs font-mono tracking-widest uppercase text-muted-foreground mb-2">
+            <span className="w-12 h-[1px] bg-border" />
+            <span>Work</span>
+            <span className="w-12 h-[1px] bg-border" />
           </motion.div>
-        </div>
+          <motion.h1 variants={fadeInUp} className="font-display text-5xl md:text-6xl lg:text-7xl tracking-tight text-foreground">
+            Selected Work
+          </motion.h1>
+          <motion.p
+            variants={fadeInUp}
+            className="text-lg text-muted-foreground leading-relaxed max-w-[600px] pt-2 mx-auto"
+          >
+            A collection of products, systems, and experiments I&apos;ve designed and engineered.
+          </motion.p>
+        </motion.div>
       </section>
 
-      {/* Filters */}
-      <section className="sticky top-16 z-30 border-b bg-background/50 py-12 backdrop-blur-sm">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="flex flex-col items-center justify-center gap-4 sm:flex-row"
-          >
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Filter className="h-4 w-4" />
-              <span className="font-medium">Filter by:</span>
-            </div>
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              {PROJECT_CATEGORIES.map((category) => (
-                <Button
-                  key={category}
-                  variant={selectedCategory === category ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setSelectedCategory(category)}
-                  className={selectedCategory === category ? "shadow-md" : ""}
-                >
-                  {category}
-                </Button>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      {/* Projects Grid Container */}
+      <section className="py-8 px-4 md:px-8 max-w-[1400px] mx-auto">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+          className="grid md:grid-cols-2 gap-6 lg:gap-8"
+        >
+          {/* Project 01 - FrameKart (Featured Full Width) */}
+          {p1 && (
+            <motion.div variants={fadeInUp} className="md:col-span-2">
+              <div className="group block h-full bg-muted/5 border border-border/30 rounded-sm hover:border-border/60 hover:bg-muted/10 transition-all duration-300">
+                <div className="p-8 md:p-12 lg:p-16 flex flex-col h-full space-y-12">
+                  
+                  {/* Header */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-4 text-xs font-mono tracking-widest uppercase text-muted-foreground">
+                      <span>01</span>
+                      <span>/</span>
+                      <span>{p1.category}</span>
+                    </div>
+                    <span className="text-xs font-mono tracking-widest text-primary uppercase border border-primary/20 bg-primary/5 px-3 py-1 rounded-sm">Featured</span>
+                  </div>
+                  
+                  {/* Title & Description */}
+                  <div>
+                    <h2 className="font-display text-5xl md:text-6xl lg:text-7xl tracking-tight text-foreground transition-transform duration-300 group-hover:translate-x-1">
+                      {p1.title}
+                    </h2>
+                    <p className="text-xl md:text-2xl text-muted-foreground mt-6 leading-relaxed max-w-3xl">
+                      {p1.description}
+                    </p>
+                  </div>
 
-      {/* Projects Grid */}
-      <section className="py-16">
-        <div className="container">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8"
-          >
-            <AnimatePresence mode="popLayout">
-              {filteredProjects.map((project, index) => (
-                <motion.div
-                  key={project.title}
-                  layout
-                  variants={scaleIn}
-                  initial="hidden"
-                  animate="visible"
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ delay: index * 0.05 }}
-                >
-                  <Card className="group relative h-full overflow-hidden transition-all duration-300 hover:shadow-xl">
-                    {/* Featured badge */}
-                    {project.featured && (
-                      <div className="absolute right-4 top-4 z-10">
-                        <div className="flex items-center gap-1 rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground shadow-lg">
-                          <Star className="h-3 w-3 fill-current" />
-                          Featured
+                  <div className="grid md:grid-cols-2 gap-12 pt-8 border-t border-border/20">
+                    
+                    {/* Left Column: Overview & Stack */}
+                    <div className="space-y-12">
+                      <div className="space-y-4">
+                        <h3 className="text-xs font-mono tracking-widest uppercase text-muted-foreground">Overview</h3>
+                        <p className="text-foreground leading-relaxed text-lg max-w-lg">
+                          {p1.overview}
+                        </p>
+                      </div>
+
+                      <div className="space-y-4">
+                        <h3 className="text-xs font-mono tracking-widest uppercase text-muted-foreground">Stack</h3>
+                        <div className="text-foreground text-sm font-mono leading-relaxed max-w-lg">
+                          {p1.tags.join(" · ")}
                         </div>
+                      </div>
+                    </div>
+
+                    {/* Right Column: Features & CTA */}
+                    <div className="space-y-12">
+                      <div className="space-y-4">
+                        <h3 className="text-xs font-mono tracking-widest uppercase text-muted-foreground">Key Features</h3>
+                        <ul className="space-y-3">
+                          {p1.keyFeatures?.map((feature, i) => (
+                            <li key={i} className="flex items-start gap-3 text-foreground">
+                              <span className="text-muted-foreground mt-1">•</span>
+                              <span className="leading-relaxed">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="pt-4">
+                        {p1.demo ? (
+                          <Link href={p1.demo} target="_blank" className="inline-flex items-center gap-2 font-mono text-sm tracking-widest uppercase text-foreground hover:text-muted-foreground transition-colors border-b border-foreground pb-1 hover:border-muted-foreground">
+                            LIVE ↗ <span className="text-muted-foreground ml-2 lowercase">({p1.demo.replace('https://', '')})</span>
+                          </Link>
+                        ) : p1.customCta ? (
+                          <Link href={p1.customCta.href} className="inline-flex items-center gap-2 font-mono text-sm tracking-widest uppercase text-foreground hover:text-muted-foreground transition-colors border-b border-foreground pb-1 hover:border-muted-foreground">
+                            {p1.customCta.label} ↗
+                          </Link>
+                        ) : null}
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          {/* Render remaining projects as standard cards */}
+          {[p2, p3, p4].map((project, index) => {
+            if (!project) return null;
+            const projectNumber = `0${index + 2}`;
+
+            return (
+              <motion.div key={project.title} variants={fadeInUp}>
+                <div className="group flex flex-col h-full bg-muted/5 border border-border/30 rounded-sm hover:border-border/60 hover:bg-muted/10 transition-all duration-300">
+                  <div className="p-8 md:p-10 flex flex-col h-full space-y-10">
+                    
+                    {/* Header */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4 text-xs font-mono tracking-widest uppercase text-muted-foreground">
+                        <span>{projectNumber}</span>
+                        <span>/</span>
+                        <span>{project.category}</span>
+                      </div>
+                      {project.statusLabel && (
+                        <span className="text-xs font-mono tracking-widest text-muted-foreground uppercase border border-border/30 bg-muted/10 px-3 py-1 rounded-sm">
+                          {project.statusLabel}
+                        </span>
+                      )}
+                    </div>
+                    
+                    {/* Title & Description */}
+                    <div>
+                      <h2 className="font-display text-4xl md:text-5xl tracking-tight text-foreground transition-transform duration-300 group-hover:translate-x-1">
+                        {project.title}
+                      </h2>
+                      <p className="text-lg text-muted-foreground mt-4 leading-relaxed">
+                        {project.description}
+                      </p>
+                    </div>
+
+                    {/* Overview */}
+                    {project.overview && (
+                      <div className="space-y-4 pt-6 border-t border-border/20">
+                        <h3 className="text-xs font-mono tracking-widest uppercase text-muted-foreground">Overview</h3>
+                        <p className="text-foreground leading-relaxed">
+                          {project.overview}
+                        </p>
                       </div>
                     )}
 
-                    {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-                    <CardHeader className="relative z-10">
-                      <CardTitle className="text-2xl transition-colors group-hover:text-primary">
-                        {project.title}
-                      </CardTitle>
-                      <CardDescription className="text-base leading-relaxed">
-                        {project.description}
-                      </CardDescription>
-
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-2 pt-4">
-                        {project.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="rounded-md bg-muted px-2.5 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
-                          >
-                            {tag}
-                          </span>
-                        ))}
+                    {/* Stack */}
+                    <div className="space-y-4">
+                      <h3 className="text-xs font-mono tracking-widest uppercase text-muted-foreground">Stack</h3>
+                      <div className="text-foreground text-sm font-mono leading-relaxed">
+                        {project.tags.join(" · ")}
                       </div>
-                    </CardHeader>
+                    </div>
 
-                    <CardContent className="relative z-10 space-y-4">
-                      {/* Metrics */}
-                      <div className="grid grid-cols-3 gap-3">
-                        {Object.entries(project.metrics).map(([key, value]) => (
-                          <div
-                            key={key}
-                            className="rounded-lg bg-muted/50 p-3 text-center transition-colors group-hover:bg-muted"
-                          >
-                            <div className="text-sm font-bold text-primary">{value}</div>
-                            <div className="mt-1 text-xs capitalize text-muted-foreground">
-                              {key}
-                            </div>
-                          </div>
-                        ))}
+                    {/* Key Features */}
+                    {project.keyFeatures && (
+                      <div className="space-y-4">
+                        <h3 className="text-xs font-mono tracking-widest uppercase text-muted-foreground">Key Features</h3>
+                        <ul className="space-y-2">
+                          {project.keyFeatures.map((feature, i) => (
+                            <li key={i} className="flex items-start gap-3 text-foreground text-sm">
+                              <span className="text-muted-foreground mt-0.5">•</span>
+                              <span className="leading-relaxed">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
+                    )}
 
-                      {/* Links */}
-                      <div className="flex gap-2 pt-2">
-                        {project.demo && (
-                          <Button asChild className="group/btn flex-1" size="sm">
-                            <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                              <Zap className="mr-2 h-4 w-4 transition-transform group-hover/btn:scale-110" />
-                              Live Demo
-                            </a>
-                          </Button>
-                        )}
-                        {project.github && (
-                          <Button asChild variant="outline" className="group/btn flex-1" size="sm">
-                            <a href={project.github} target="_blank" rel="noopener noreferrer">
-                              <Github className="mr-2 h-4 w-4 transition-transform group-hover/btn:rotate-12" />
-                              Source Code
-                            </a>
-                          </Button>
-                        )}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
+                    {/* Action Links */}
+                    <div className="mt-auto pt-8 border-t border-border/20 flex items-center gap-6">
+                      {project.demo ? (
+                        <Link href={project.demo} target="_blank" className="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-foreground hover:text-muted-foreground transition-colors border-b border-foreground pb-1 hover:border-muted-foreground">
+                          VIEW ↗
+                        </Link>
+                      ) : project.customCta ? (
+                        <Link href={project.customCta.href} className="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-foreground hover:text-muted-foreground transition-colors border-b border-foreground pb-1 hover:border-muted-foreground">
+                          {project.customCta.label} ↗
+                        </Link>
+                      ) : (
+                        <Link href={`#`} className="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-foreground hover:text-muted-foreground transition-colors border-b border-foreground pb-1 hover:border-muted-foreground">
+                          VIEW PROJECT ↗
+                        </Link>
+                      )}
+                    </div>
 
-          {/* No results */}
-          {filteredProjects.length === 0 && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="py-16 text-center"
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+
+        </motion.div>
+      </section>
+
+      {/* Pre-footer CTA */}
+      <section className="py-24 px-4 md:px-8 text-center border-t border-border/50 mt-16">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+          className="max-w-2xl mx-auto space-y-8 flex flex-col items-center"
+        >
+          <motion.h2 variants={fadeInUp} className="font-display text-4xl md:text-6xl tracking-tight">
+            Let&apos;s build something <br/> <span className="text-muted-foreground">worth shipping.</span>
+          </motion.h2>
+          <motion.div variants={fadeInUp} className="pt-8 flex justify-center">
+            <Link 
+              href="/contact"
+              className="inline-flex items-center gap-2 font-mono text-sm tracking-widest uppercase hover:text-muted-foreground transition-colors border-b border-foreground pb-1 hover:border-muted-foreground"
             >
-              <p className="text-lg text-muted-foreground">No projects found in this category.</p>
-            </motion.div>
-          )}
-        </div>
+              Start a Conversation <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
+        </motion.div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-muted/30 py-16">
-        <div className="container">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="mx-auto max-w-3xl space-y-6 text-center"
-          >
-            <motion.h2 variants={fadeInUp} className="text-fluid-3xl font-bold">
-              Interested in Collaborating?
-            </motion.h2>
-            <motion.p variants={fadeInUp} className="text-fluid-lg text-muted-foreground">
-              I'm always open to discussing new projects, creative ideas, or opportunities to be
-              part of your vision.
-            </motion.p>
-            <motion.div variants={fadeInUp}>
-              <Button asChild size="lg" className="shadow-lg transition-all hover:shadow-xl">
-                <Link href="/contact">
-                  Get in Touch
-                  <TrendingUp className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
     </div>
   );
 }

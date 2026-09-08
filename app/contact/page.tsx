@@ -2,131 +2,82 @@
 
 import { motion } from "framer-motion";
 import { SOCIAL_LINKS } from "@/lib/constants";
-import { fadeInUp, fadeInRight, staggerContainer } from "@/lib/animations";
+import { ArrowUpRight } from "lucide-react";
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.1 }
+  }
+};
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  }
+};
 
 export default function ContactPage() {
   return (
-    <div className="pb-24">
-      <section className="border-b bg-gradient-to-b from-background to-muted/30 py-24">
-        <div className="container">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="mx-auto max-w-4xl space-y-6 text-center"
-          >
-            <motion.h1 variants={fadeInUp} className="text-fluid-5xl font-bold">
-              Get in Touch
-            </motion.h1>
-            <motion.p
-              variants={fadeInUp}
-              className="text-fluid-xl leading-relaxed text-muted-foreground"
-            >
-              Looking to collaborate on a project, need technical consultation, or just want to say
-              hello? I'd love to hear from you.
-            </motion.p>
+    <div className="overflow-hidden bg-background min-h-screen flex flex-col justify-center">
+      
+      <section className="pt-32 pb-32 px-4 md:px-8 max-w-[1400px] mx-auto w-full text-center">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+          className="max-w-4xl mx-auto space-y-16 flex flex-col items-center"
+        >
+          <motion.div variants={fadeInUp} className="flex items-center justify-center gap-4 text-xs font-mono tracking-widest uppercase text-muted-foreground">
+            <span className="w-12 h-[1px] bg-border" />
+            <span>Contact</span>
+            <span className="w-12 h-[1px] bg-border" />
           </motion.div>
-        </div>
-      </section>
 
-      <section className="py-24">
-        <div className="container">
-          <div className="mx-auto max-w-2xl">
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fadeInRight}
-              className="space-y-8"
+          <motion.div variants={fadeInUp} className="space-y-6">
+            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl tracking-tight text-foreground">
+              Let&apos;s build something <br />
+              <span className="text-muted-foreground">worth shipping.</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl">
+              Have a product idea, technical challenge, or ambitious project? Let&apos;s talk.
+            </p>
+          </motion.div>
+
+          <motion.div variants={fadeInUp} className="pt-8 flex justify-center">
+            <a 
+              href="mailto:muhammadsabik.org@gmail.com"
+              className="inline-flex items-center gap-4 text-2xl md:text-4xl font-medium tracking-tight text-foreground hover:text-muted-foreground transition-colors group"
             >
-              <div>
-                <h2 className="mb-4 text-2xl font-bold">Connect With Me</h2>
-                <p className="mb-6 text-muted-foreground">
-                  Prefer a different way to reach out? Find me on these platforms:
-                </p>
-                <motion.div
-                  initial="hidden"
-                  animate="visible"
-                  variants={staggerContainer}
-                  className="space-y-4"
-                >
-                  {SOCIAL_LINKS.map((link) => (
-                    <motion.a
-                      key={link.name}
-                      href={link.href}
-                      target={link.name !== "Email" ? "_blank" : undefined}
-                      rel={link.name !== "Email" ? "noopener noreferrer" : undefined}
-                      variants={fadeInUp}
-                      whileHover={{ x: 8, transition: { duration: 0.2 } }}
-                      className="group flex items-center gap-4 rounded-lg border bg-card p-4 transition-all hover:border-primary hover:shadow-lg"
-                    >
-                      <motion.div
-                        className="rounded-lg bg-primary/10 p-2 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground"
-                        whileHover={{ scale: 1.1, rotate: 5 }}
-                        transition={{ type: "spring", stiffness: 400 }}
-                      >
-                        <link.icon className="h-5 w-5" />
-                      </motion.div>
-                      <div>
-                        <div className="font-medium">{link.name}</div>
-                        <div className="text-sm text-muted-foreground">{link.username}</div>
-                      </div>
-                    </motion.a>
-                  ))}
-                </motion.div>
-              </div>
+              Start a Conversation 
+              <ArrowUpRight className="w-8 h-8 transition-transform group-hover:translate-x-2 group-hover:-translate-y-2" />
+            </a>
+          </motion.div>
 
-              {/* <Card className="shadow-md">
-                <CardHeader>
-                  <CardTitle>Response Time</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-2 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-2">
-                    <div className="h-2 w-2 rounded-full bg-green-500" />
-                    <p>
-                      <strong className="text-foreground">Email:</strong> Within 24 hours
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="h-2 w-2 rounded-full bg-blue-500" />
-                    <p>
-                      <strong className="text-foreground">LinkedIn:</strong> Within 48 hours
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="h-2 w-2 rounded-full bg-orange-500" />
-                    <p>
-                      <strong className="text-foreground">Urgent matters:</strong> Email is best
-                    </p>
-                  </div>
-                </CardContent>
-              </Card> */}
-
-              {/* <Card className="shadow-md">
-                <CardHeader>
-                  <CardTitle>What I'm Looking For</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-2 text-sm">
-                  <p className="flex items-center gap-2 text-green-600 dark:text-green-400">
-                    <CheckCircle2 className="h-4 w-4" /> Interesting technical problems
-                  </p>
-                  <p className="flex items-center gap-2 text-green-600 dark:text-green-400">
-                    <CheckCircle2 className="h-4 w-4" /> Product collaborations
-                  </p>
-                  <p className="flex items-center gap-2 text-green-600 dark:text-green-400">
-                    <CheckCircle2 className="h-4 w-4" /> Speaking opportunities
-                  </p>
-                  <p className="flex items-center gap-2 text-green-600 dark:text-green-400">
-                    <CheckCircle2 className="h-4 w-4" /> Open source contributions
-                  </p>
-                  <p className="flex items-center gap-2 text-muted-foreground">
-                    ✗ Generic outreach or spam
-                  </p>
-                </CardContent>
-              </Card> */}
-            </motion.div>
-          </div>
-        </div>
+          <motion.div variants={fadeInUp} className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 pt-16 border-t border-border/50 w-full max-w-3xl">
+            {SOCIAL_LINKS.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                target={link.name !== "Email" ? "_blank" : undefined}
+                rel={link.name !== "Email" ? "noopener noreferrer" : undefined}
+                className="group flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <span className="font-mono text-sm tracking-widest uppercase">{link.name}</span>
+                <span className="flex items-center justify-center gap-1 font-medium">
+                  {link.username}
+                  <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all" />
+                </span>
+              </a>
+            ))}
+          </motion.div>
+        </motion.div>
       </section>
+
     </div>
   );
 }

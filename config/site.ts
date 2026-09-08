@@ -1,8 +1,8 @@
 export const siteConfig = {
-  name: "Muhammad Sabik",
-  title: "Muhammad Sabik — Full-Stack Architect & Founder",
+  name: "Mohammed Shabik",
+  title: "Mohammed Shabik — Software Engineer & Founder",
   description:
-    "Computer Science Engineer, Full-Stack Architect, and Founder of FrameKart. Building scalable platforms and engineering excellence.",
+    "Mohammed Shabik is a software engineer and founder building digital products, scalable systems, and modern web experiences.",
   url: "https://muhammadsabik.dev",
   ogImage: "https://muhammadsabik.dev/og.png",
   email: "muhammadsabik.org@gmail.com",
@@ -12,9 +12,9 @@ export const siteConfig = {
     X: "https://x.com/muhammadsabik",
   },
   creator: {
-    name: "Muhammad Sabik",
-    role: "Computer Science Engineer | Full-Stack Architect | Founder",
-    bio: "Building FrameKart and engineering scalable platforms. Passionate about clean architecture, performance optimization, and creating impactful products.",
+    name: "Mohammed Shabik",
+    role: "Software Engineer | Founder",
+    bio: "Mohammed Shabik is a software engineer and founder building digital products, scalable systems, and modern web experiences.",
     location: "India",
   },
 } as const;

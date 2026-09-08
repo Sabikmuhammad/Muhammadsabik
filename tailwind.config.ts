@@ -11,7 +11,11 @@ const config: Config = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: {
+        DEFAULT: "1rem",
+        md: "2rem",
+        lg: "4rem",
+      },
       screens: {
         "2xl": "1400px",
       },
@@ -59,45 +63,31 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-instrument-serif)", "Georgia", "serif"],
         mono: ["var(--font-geist-mono)", "monospace"],
       },
       fontSize: {
-        // Fluid typography using clamp
-        "fluid-xs": "clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem)",
-        "fluid-sm": "clamp(0.875rem, 0.825rem + 0.25vw, 1rem)",
-        "fluid-base": "clamp(1rem, 0.95rem + 0.25vw, 1.125rem)",
-        "fluid-lg": "clamp(1.125rem, 1.05rem + 0.375vw, 1.25rem)",
-        "fluid-xl": "clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem)",
-        "fluid-2xl": "clamp(1.5rem, 1.35rem + 0.75vw, 2rem)",
-        "fluid-3xl": "clamp(1.875rem, 1.65rem + 1.125vw, 2.5rem)",
-        "fluid-4xl": "clamp(2.25rem, 1.95rem + 1.5vw, 3rem)",
-        "fluid-5xl": "clamp(3rem, 2.5rem + 2.5vw, 4rem)",
-        "fluid-6xl": "clamp(3.75rem, 3rem + 3.75vw, 5rem)",
+        // Precise editorial scale replacing excessive fluid clamp
+        "xs": ["0.75rem", { lineHeight: "1.5" }],
+        "sm": ["0.875rem", { lineHeight: "1.5" }],
+        "base": ["1rem", { lineHeight: "1.6" }],
+        "lg": ["1.125rem", { lineHeight: "1.5" }],
+        "xl": ["1.25rem", { lineHeight: "1.4" }],
+        "2xl": ["1.5rem", { lineHeight: "1.3" }],
+        "3xl": ["2rem", { lineHeight: "1.2" }],
+        "4xl": ["2.5rem", { lineHeight: "1.1" }],
+        "5xl": ["3.25rem", { lineHeight: "1.1" }],
+        "6xl": ["4.5rem", { lineHeight: "1" }],
+        "7xl": ["6rem", { lineHeight: "1" }],
       },
       keyframes: {
         "fade-in": {
           from: { opacity: "0" },
           to: { opacity: "1" },
         },
-        "fade-out": {
-          from: { opacity: "1" },
-          to: { opacity: "0" },
-        },
-        "slide-in-from-top": {
-          from: { transform: "translateY(-100%)" },
-          to: { transform: "translateY(0)" },
-        },
-        "slide-in-from-bottom": {
-          from: { transform: "translateY(100%)" },
-          to: { transform: "translateY(0)" },
-        },
-        "slide-in-from-left": {
-          from: { transform: "translateX(-100%)" },
-          to: { transform: "translateX(0)" },
-        },
-        "slide-in-from-right": {
-          from: { transform: "translateX(100%)" },
-          to: { transform: "translateX(0)" },
+        "fade-up": {
+          from: { opacity: "0", transform: "translateY(20px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
         },
         "accordion-down": {
           from: { height: "0" },
@@ -109,12 +99,8 @@ const config: Config = {
         },
       },
       animation: {
-        "fade-in": "fade-in 0.5s ease-in-out",
-        "fade-out": "fade-out 0.5s ease-in-out",
-        "slide-in-from-top": "slide-in-from-top 0.5s ease-out",
-        "slide-in-from-bottom": "slide-in-from-bottom 0.5s ease-out",
-        "slide-in-from-left": "slide-in-from-left 0.5s ease-out",
-        "slide-in-from-right": "slide-in-from-right 0.5s ease-out",
+        "fade-in": "fade-in 0.7s ease-out",
+        "fade-up": "fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
