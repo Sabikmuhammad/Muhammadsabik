@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, X } from "lucide-react";
+import { Github, Linkedin, Mail, X, MessageCircle } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { SocialLink } from "@/lib/types";
 
@@ -26,5 +26,11 @@ export const SOCIAL_LINKS: SocialLink[] = [
     href: `mailto:${siteConfig.email}`,
     icon: Mail,
     username: siteConfig.email,
+  },
+  {
+    name: "WhatsApp",
+    href: "https://wa.me/7259788138",
+    icon: MessageCircle,
+    username: "+91 7259 788 138",
   },
 ];
