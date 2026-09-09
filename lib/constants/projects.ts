@@ -4,6 +4,7 @@ export const PROJECT_CATEGORIES = ["All", "E-COMMERCE", "AI · AUTOMATION", "BUS
 
 export const PROJECTS: Project[] = [
   {
+    slug: "framekart",
     title: "FrameKart",
     description: "Custom e-commerce platform for personalized frames.",
     category: "E-COMMERCE",
@@ -21,6 +22,7 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
+    slug: "agentos",
     title: "AgentOS",
     description: "AI-powered workflow automation platform.",
     category: "AI · AUTOMATION",
@@ -37,6 +39,7 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
+    slug: "bizflow",
     title: "BizFlow",
     description: "Business management, billing and inventory platform.",
     category: "BUSINESS · SAAS",
@@ -55,26 +58,6 @@ export const PROJECTS: Project[] = [
     customCta: {
       label: "View",
       href: "#"
-    }
-  },
-  {
-    title: "WhatsApp Business Automation",
-    description: "API-driven communication and workflow automation connecting business systems with WhatsApp.",
-    category: "API · AUTOMATION",
-    tags: ["Node.js", "Webhooks", "REST APIs", "WhatsApp Business API"],
-    overview: "A backend automation system that connects business applications and internal workflows with WhatsApp, allowing businesses to automate customer communication, notifications and operational messaging.",
-    keyFeatures: [
-      "WhatsApp Business API integration",
-      "Webhook handling",
-      "Event-driven workflows",
-      "Automated customer messaging",
-      "Business system integration",
-      "API-based communication",
-      "Notification automation"
-    ],
-    customCta: {
-      label: "Chat now",
-      href: "https://wa.me/919480632085"
     }
   }
 ];

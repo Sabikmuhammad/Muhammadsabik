@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-    creator: "@muhammadsabik",
+    creator: "@SabikDevelops",
   },
   robots: {
     index: true,
@@ -94,26 +94,18 @@ export default function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: siteConfig.creator.name,
-    url: siteConfig.url,
+    name: "Mohammed Shabik",
+    alternateName: ["Muhammad Sabik", "Muhammad Shabik"],
+    url: "https://mohammedshabik.in",
     image: siteConfig.ogImage,
-    jobTitle: "Full-Stack Architect & Founder",
-    description: siteConfig.creator.bio,
-    email: siteConfig.email,
-    sameAs: [siteConfig.links.github, siteConfig.links.linkedin, siteConfig.links.X],
-    alumniOf: {
-      "@type": "EducationalOrganization",
-      name: "Computer Science Engineering",
-    },
-    knowsAbout: [
-      "Full-Stack Development",
-      "Software Architecture",
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Web Development",
-      "Software Engineering",
-    ],
+    description: siteConfig.description,
+    jobTitle: "Software Engineer",
+    sameAs: [
+      siteConfig.links.github,
+      siteConfig.links.linkedin,
+      siteConfig.links.instagram,
+      siteConfig.links.X
+    ]
   };
 
   return (

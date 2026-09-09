@@ -2,8 +2,8 @@
   "name": "muhammad-sabik-platform",
   "version": "1.0.0",
   "private": true,
-  "description": "World-class personal platform for Muhammad Sabik - Computer Science Engineer, Full-Stack Architect, Founder",
-  "author": "Muhammad Sabik <muhammadsabik.org@gmail.com>",
+  "description": "World-class personal platform for Mohammed Shabik - Computer Science Engineer, Full-Stack Architect, Founder",
+  "author": "Mohammed Shabik <muhammadsabik.org@gmail.com>",
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build",

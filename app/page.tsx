@@ -53,10 +53,10 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-8 items-center justify-center">
               <Link 
-                href="/work" 
+                href="/projects" 
                 className="group flex items-center gap-2 text-lg font-medium border-b border-foreground pb-1 transition-colors hover:text-muted-foreground hover:border-muted-foreground"
               >
-                View Selected Work
+                View Selected Projects
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link 
@@ -66,6 +66,12 @@ export default function HomePage() {
                 Let&apos;s Talk
                 <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </Link>
+            </div>
+            
+            <div className="flex items-center gap-6 pt-4">
+              <a href="https://github.com/Sabikmuhammad" target="_blank" rel="noopener noreferrer" className="text-sm font-mono tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">GitHub</a>
+              <a href="https://www.linkedin.com/in/mohammedshabik" target="_blank" rel="noopener noreferrer" className="text-sm font-mono tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">LinkedIn</a>
+              <a href="https://x.com/SabikDevelops" target="_blank" rel="noopener noreferrer" className="text-sm font-mono tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors">X</a>
             </div>
           </motion.div>
         </motion.div>
@@ -134,7 +140,7 @@ export default function HomePage() {
           {/* View More Projects CTA */}
           <motion.div variants={fadeInUp} className="flex justify-center pt-8">
             <Link 
-              href="/work" 
+              href="/projects" 
               className="group inline-flex items-center gap-2 text-sm font-mono tracking-widest uppercase text-foreground transition-colors border-b border-foreground pb-1 hover:text-muted-foreground hover:border-muted-foreground"
             >
               VIEW MORE PROJECTS <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -143,68 +149,6 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* 3. WhatsApp Business Automation Promotion */}
-      <section className="py-32 px-4 md:px-8 bg-background border-t border-border/50">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="max-w-[1400px] mx-auto"
-        >
-          <div className="max-w-4xl mx-auto space-y-12">
-            
-            <motion.div variants={fadeInUp} className="space-y-6">
-              <div className="text-xs font-mono tracking-widest uppercase text-muted-foreground">
-                WhatsApp Business Automation
-              </div>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-7xl tracking-tight text-foreground leading-[1.1]">
-                TURN WHATSAPP INTO <br className="hidden md:block" /> PART OF YOUR BUSINESS SYSTEM.
-              </h2>
-            </motion.div>
-
-            <motion.div variants={fadeInUp} className="grid md:grid-cols-2 gap-12 md:gap-24 pt-8">
-              
-              {/* Copy Area */}
-              <div className="space-y-8">
-                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
-                  API-driven communication and workflow automation connecting business systems with WhatsApp.
-                </p>
-                <div className="pt-4">
-                  <a 
-                    href="https://wa.me/919480632085" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 text-sm font-mono tracking-widest uppercase text-foreground transition-colors border-b border-foreground pb-1 hover:text-muted-foreground hover:border-muted-foreground"
-                  >
-                    DISCUSS AN AUTOMATION <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </a>
-                </div>
-              </div>
-
-              {/* Capabilities List */}
-              <div className="space-y-6 md:pl-12 md:border-l border-border/20">
-                <ul className="space-y-4">
-                  {[
-                    "Automated business notifications",
-                    "API-driven communication",
-                    "Event-based workflows",
-                    "Webhook integrations",
-                    "Business system integrations"
-                  ].map((capability, idx) => (
-                    <li key={idx} className="flex items-start gap-4">
-                      <span className="text-muted-foreground mt-1 text-xs font-mono uppercase tracking-widest">0{idx + 1}</span>
-                      <span className="text-foreground leading-relaxed font-light">{capability}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-            </motion.div>
-
-          </div>
-        </motion.div>
-      </section>
 
       {/* 4. Pre-footer CTA (Centered) */}
       <section className="py-32 px-4 md:px-8 text-center border-t border-border/50">

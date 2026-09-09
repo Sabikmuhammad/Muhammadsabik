@@ -22,11 +22,10 @@ const fadeInUp = {
   }
 };
 
-export default function WorkPage() {
+export function ProjectsClient() {
   const p1 = PROJECTS[0];
   const p2 = PROJECTS[1];
   const p3 = PROJECTS[2];
-  const p4 = PROJECTS[3];
 
   return (
     <div className="pb-24 overflow-hidden bg-background">
@@ -40,11 +39,11 @@ export default function WorkPage() {
         >
           <motion.div variants={fadeInUp} className="flex items-center justify-center gap-4 text-xs font-mono tracking-widest uppercase text-muted-foreground mb-2">
             <span className="w-12 h-[1px] bg-border" />
-            <span>Work</span>
+            <span>Projects</span>
             <span className="w-12 h-[1px] bg-border" />
           </motion.div>
           <motion.h1 variants={fadeInUp} className="font-display text-5xl md:text-6xl lg:text-7xl tracking-tight text-foreground">
-            Selected Work
+            Selected Projects
           </motion.h1>
           <motion.p
             variants={fadeInUp}
@@ -143,7 +142,7 @@ export default function WorkPage() {
           )}
 
           {/* Render remaining projects as standard cards */}
-          {[p2, p3, p4].map((project, index) => {
+          {[p2, p3].map((project, index) => {
             if (!project) return null;
             const projectNumber = `0${index + 2}`;
 

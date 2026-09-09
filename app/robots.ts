@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/admin/"],
       },
     ],
-    sitemap: "https://muhammadsabik.dev/sitemap.xml",
+    sitemap: "https://mohammedshabik.in/sitemap.xml",
   };
 }

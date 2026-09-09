@@ -141,7 +141,7 @@ export function Navigation() {
               className="absolute bottom-10 left-0 right-0 flex flex-col items-center"
             >
               <p className="text-xs font-medium text-foreground tracking-widest uppercase">Mohammed Shabik</p>
-              <p className="mt-2 text-xs text-muted-foreground">Software Engineer & Founder</p>
+              <p className="mt-2 text-xs text-muted-foreground">Software Engineer</p>
             </motion.div>
           </motion.div>
         )}

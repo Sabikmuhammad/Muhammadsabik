@@ -1,4 +1,4 @@
-# Muhammad Sabik — Personal Platform
+# Mohammed Shabik — Personal Platform
 
 A world-class personal platform built with Next.js 15, TypeScript, and modern web technologies. Designed for authority, performance, and scalability.
 
@@ -208,7 +208,7 @@ This is a personal project, but suggestions and feedback are welcome!
 
 ## 📄 License
 
-© 2024 Muhammad Sabik. All rights reserved.
+© 2024 Mohammed Shabik. All rights reserved.
 
 ## 🔗 Links
 

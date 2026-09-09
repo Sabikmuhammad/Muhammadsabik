@@ -47,10 +47,10 @@ export function Footer() {
           <div>
             <h3 className="mb-6 text-xs font-mono tracking-widest uppercase text-muted-foreground">Directory</h3>
             <ul className="space-y-4">
-              {["Work", "About", "Expertise"].map((item) => (
+              {["Projects", "Experience", "About", "Resume"].map((item) => (
                 <li key={item}>
                   <Link
-                    href={`/${item.toLowerCase() === 'expertise' ? 'skills' : item.toLowerCase()}`}
+                    href={`/${item.toLowerCase()}`}
                     className="group inline-flex items-center text-foreground/80 transition-colors hover:text-foreground"
                   >
                     <span className="font-medium tracking-wide">{item}</span>

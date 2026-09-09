@@ -52,3 +52,47 @@ export const VALUES: Value[] = [
     description: "Taking full responsibility from concept to deployment and beyond.",
   },
 ];
+
+export const SKILLS = [
+  {
+    category: "Frontend",
+    description: "Building resilient, performant, and accessible user interfaces.",
+    skills: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Angular",
+      "Framer Motion",
+      "State Management (Zustand, Redux)",
+      "Core Web Vitals Optimization"
+    ]
+  },
+  {
+    category: "Backend & Systems",
+    description: "Designing scalable APIs, microservices, and robust data models.",
+    skills: [
+      "Node.js",
+      "Express",
+      "RESTful APIs",
+      "GraphQL",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "System Architecture"
+    ]
+  },
+  {
+    category: "Cloud & Infrastructure",
+    description: "Deploying and maintaining high-availability infrastructure.",
+    skills: [
+      "AWS (EC2, S3, RDS)",
+      "Docker",
+      "Kubernetes",
+      "CI/CD (GitHub Actions)",
+      "Serverless",
+      "Infrastructure as Code",
+      "Linux Administration"
+    ]
+  }
+];
