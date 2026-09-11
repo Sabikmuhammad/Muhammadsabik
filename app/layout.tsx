@@ -6,6 +6,7 @@ import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { siteConfig } from "@/config/site";
 import { Inter, Instrument_Serif } from "next/font/google";
+import { Intro } from "@/components/intro";
 import "./globals.css";
 
 const inter = Inter({
@@ -108,11 +109,23 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (!sessionStorage.getItem('introShown') && location.pathname === '/') {
+                  document.documentElement.classList.add('show-intro');
+                }
+              } catch (e) {}
+            `
+          }}
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
       <body className={`${inter.variable} ${instrumentSerif.variable} font-sans antialiased`} suppressHydrationWarning>
+        <Intro />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

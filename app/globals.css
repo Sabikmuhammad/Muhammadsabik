@@ -132,3 +132,8 @@
     @apply transition-transform duration-500 ease-out hover:scale-[1.02];
   }
 }
+
+/* Intro overlay logic */
+html:not(.show-intro) .intro-overlay {
+  display: none !important;
+}
