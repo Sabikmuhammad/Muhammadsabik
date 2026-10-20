@@ -6,5 +6,6 @@ export const NAVIGATION_ITEMS: NavItem[] = [
   { name: "Projects", href: "/projects" },
   { name: "Experience", href: "/experience" },
   { name: "Skills", href: "/skills" },
+  { name: "Resume", href: "/resume" },
   { name: "Contact", href: "/contact" },
 ];

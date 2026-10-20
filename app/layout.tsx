@@ -128,8 +128,9 @@ export default function RootLayout({
         <Intro />
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
+          forcedTheme="dark"
           disableTransitionOnChange
         >
           <div className="relative flex min-h-screen flex-col">

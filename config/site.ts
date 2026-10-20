@@ -5,7 +5,7 @@ export const siteConfig = {
     "Mohammed Shabik is a Software Engineer who builds modern web applications and digital products.",
   url: "https://mohammedshabik.in",
   ogImage: "https://mohammedshabik.in/og.png",
-  email: "muhammadsabik.org@gmail.com",
+  email: "contact@mohammedshabik.in",
   links: {
     github: "https://github.com/Sabikmuhammad",
     linkedin: "https://www.linkedin.com/in/mohammedshabik",

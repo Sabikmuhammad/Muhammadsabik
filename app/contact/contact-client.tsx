@@ -50,7 +50,7 @@ export function ContactClient() {
 
           <motion.div variants={fadeInUp} className="pt-8 flex justify-center">
             <a 
-              href="mailto:muhammadsabik.org@gmail.com"
+              href="mailto:contact@mohammedshabik.in"
               className="inline-flex items-center gap-4 text-2xl md:text-4xl font-medium tracking-tight text-foreground hover:text-muted-foreground transition-colors group"
             >
               Start a Conversation 

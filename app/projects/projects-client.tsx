@@ -24,8 +24,6 @@ const fadeInUp = {
 
 export function ProjectsClient() {
   const p1 = PROJECTS[0];
-  const p2 = PROJECTS[1];
-  const p3 = PROJECTS[2];
 
   return (
     <div className="pb-24 overflow-hidden bg-background">
@@ -142,7 +140,7 @@ export function ProjectsClient() {
           )}
 
           {/* Render remaining projects as standard cards */}
-          {[p2, p3].map((project, index) => {
+          {PROJECTS.slice(1).map((project, index) => {
             if (!project) return null;
             const projectNumber = `0${index + 2}`;
 

@@ -26,6 +26,8 @@ export interface TimelineItem {
   company: string;
   description: string;
   icon: LucideIcon;
+  technologies?: string[];
+  link?: string;
 }
 
 export interface Value {

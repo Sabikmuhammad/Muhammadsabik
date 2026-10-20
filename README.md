@@ -213,7 +213,7 @@ This is a personal project, but suggestions and feedback are welcome!
 ## 🔗 Links
 
 - **Website**: [muhammadsabik.com](https://muhammadsabik.com)
-- **Email**: muhammadsabik.org@gmail.com
+- **Email**: contact@mohammedshabik.in
 - **GitHub**: [@muhammadsabik](https://github.com/muhammadsabik)
 - **LinkedIn**: [muhammadsabik](https://linkedin.com/in/muhammadsabik)
 

@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { ThemeToggle } from "./theme-toggle";
 import { NAVIGATION_ITEMS } from "@/lib/constants";
 import { useScrollProgress } from "@/hooks";
 
@@ -66,8 +65,6 @@ export function Navigation() {
 
           {/* Right side actions */}
           <div className="flex items-center gap-4">
-            <ThemeToggle />
-
             {/* Mobile menu button */}
             <button
               className="relative z-50 md:hidden p-2 -mr-2 text-foreground focus:outline-none"

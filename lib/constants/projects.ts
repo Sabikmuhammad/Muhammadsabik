@@ -59,5 +59,25 @@ export const PROJECTS: Project[] = [
       label: "View",
       href: "#"
     }
+  },
+  {
+    slug: "triploom",
+    title: "Triploom",
+    description: "AI-powered travel planning and personalized itinerary platform.",
+    category: "AI · TRAVEL",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "AI"],
+    statusLabel: "IN DEVELOPMENT",
+    overview: "An AI-driven travel discovery and itinerary planning platform delivering personalized destination recommendations, day-wise itineraries, and accommodation listings.",
+    keyFeatures: [
+      "AI-driven itinerary generation",
+      "Conversational travel planner",
+      "Hospitality & accommodation directory",
+      "Dynamic destination guides",
+      "Mobile-optimized travel discovery"
+    ],
+    customCta: {
+      label: "Preview",
+      href: "#"
+    }
   }
 ];
