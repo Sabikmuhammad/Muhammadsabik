@@ -55,29 +55,31 @@ export const SKILLS = [
     ]
   },
   {
-    category: "Frontend Development",
+    category: "Frontend",
     description: "Building modern, responsive, and high-performance client experiences across web and mobile.",
     skills: [
       "React.js",
-      "Next.js (App Router)",
+      "Next.js",
       "Angular",
       "React Native",
       "Flutter",
+      "HTML5",
+      "CSS3",
       "Tailwind CSS",
-      "ShadCN UI",
-      "HTML5 & CSS3"
+      "ShadCN UI"
     ]
   },
   {
-    category: "Backend & APIs",
+    category: "Backend",
     description: "Designing scalable server architectures, resilient APIs, and microservice workflows.",
     skills: [
       "Node.js",
       "Express.js",
       "FastAPI",
-      "RESTful APIs",
+      "REST APIs",
       "API Design",
-      "Server-Side Development"
+      "Authentication",
+      "Server-side Development"
     ]
   },
   {
@@ -85,21 +87,22 @@ export const SKILLS = [
     description: "Relational and document storage solutions optimized for performance, indexing, and reliability.",
     skills: [
       "MongoDB",
-      "Mongoose ORM",
+      "Mongoose",
       "PostgreSQL",
       "SQLite"
     ]
   },
   {
-    category: "AI & Automation",
-    description: "Intelligent agent orchestration, webhooks, and conversational messaging automation.",
+    category: "WhatsApp Marketing & Automation",
+    description: "Meta WhatsApp Cloud API integrations, conversational commerce, webhooks, and messaging automation.",
     skills: [
       "Meta WhatsApp Cloud API",
       "WhatsApp Business Platform",
-      "AI Agents",
       "Webhooks",
       "Message Templates",
-      "Automated Workflows",
+      "Interactive Messages",
+      "Automated Messaging",
+      "Message Status Tracking",
       "Contact Management"
     ]
   },
@@ -110,7 +113,7 @@ export const SKILLS = [
       "JWT",
       "Clerk",
       "NextAuth",
-      "Role-Based Access Control (RBAC)",
+      "Role-Based Access Control",
       "API Authentication"
     ]
   },

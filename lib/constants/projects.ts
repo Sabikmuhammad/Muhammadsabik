@@ -28,7 +28,7 @@ export const PROJECTS: Project[] = [
     category: "AI · AUTOMATION",
     tags: ["Python", "React", "FastAPI", "AI/ML"],
     demo: "https://agentaios.vercel.app",
-    statusLabel: "IN DEVELOPMENT",
+    statusLabel: "LIVE",
     overview: "An intelligent automation platform designed to execute tasks through AI agents, tool integrations and workflow orchestration.",
     keyFeatures: [
       "AI agent orchestration",
@@ -36,6 +36,22 @@ export const PROJECTS: Project[] = [
       "Tool integration",
       "Task execution",
       "API-driven architecture"
+    ],
+  },
+  {
+    slug: "whatsapp-commerce",
+    title: "WhatsApp Commerce Platform",
+    description: "Conversational commerce platform enabling customers to browse product catalogs and order directly through WhatsApp.",
+    category: "AI · AUTOMATION",
+    tags: ["WhatsApp Cloud API", "Node.js", "TypeScript", "Webhooks", "E-Commerce"],
+    statusLabel: "LIVE DEMO",
+    overview: "A conversational commerce platform enabling customers to browse product catalogs, explore categories, view interactive carousels, and complete purchases seamlessly within WhatsApp.",
+    keyFeatures: [
+      "Interactive WhatsApp product carousels",
+      "Category-based messaging flows",
+      "Custom product discovery & frame inquiries",
+      "Cart-based checkout interactions",
+      "Unified conversational order support"
     ],
   },
   {
