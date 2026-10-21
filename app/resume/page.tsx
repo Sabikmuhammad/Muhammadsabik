@@ -48,8 +48,8 @@ export default function ResumePage() {
             <h1 className="font-display text-5xl sm:text-6xl md:text-7xl tracking-tight text-foreground">
               Mohammed Shabik
             </h1>
-            <p className="text-sm font-mono tracking-widest uppercase text-muted-foreground mt-2">
-              Mangaluru, Karnataka, India
+            <p className="text-sm font-mono tracking-widest uppercase text-muted-foreground mt-2 flex items-center justify-center sm:justify-start gap-1.5">
+              <MapPin className="w-3.5 h-3.5 text-foreground/60" /> Mangaluru, Karnataka, India
             </p>
             <p className="text-xl sm:text-2xl text-muted-foreground mt-3 font-display">
               Computer Science Engineer <span className="text-foreground/40 font-mono text-base px-2">|</span> Software Engineer <span className="text-foreground/40 font-mono text-base px-2">|</span> AI & Full-Stack Developer
@@ -186,7 +186,7 @@ export default function ResumePage() {
                     <h3 className="text-2xl font-display text-foreground">WhatsApp Commerce Platform</h3>
                     <span className="text-xs font-mono text-emerald-500 border border-emerald-500/20 bg-emerald-500/10 px-2 py-0.5 rounded-sm uppercase tracking-wider">Live Demo</span>
                   </div>
-                  <a href="href{https://wa.me/919480632085" target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-muted-foreground hover:text-foreground inline-flex items-center gap-1 transition-colors">
+                  <a href="https://wa.me/919480632085" target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-muted-foreground hover:text-foreground inline-flex items-center gap-1 transition-colors">
                     Live Demo ↗
                   </a>
                 </div>
